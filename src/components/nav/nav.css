@@ -1,0 +1,14 @@
+#nav {
+  display: flex;
+  justify-content: center;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 10px 0;
+}
+
+#nav-links {
+  color: red;
+  display: flex;
+  justify-content: space-between;
+  flex: 0 1 600px;
+}
