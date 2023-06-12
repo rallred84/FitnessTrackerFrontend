@@ -8,10 +8,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 
 #root > div {
   width: 800px;
+}
+
+#main {
+  flex: 1 0;
+  overflow: auto;
+  margin-top: 10px;
 }
 
 a {
