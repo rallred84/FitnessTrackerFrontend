@@ -20,12 +20,3 @@
   overflow: auto;
   margin-top: 10px;
 }
-
-a {
-  text-decoration: none;
-  color: red;
-}
-
-a:hover {
-  color: rgb(162, 11, 11);
-}

@@ -12,3 +12,15 @@
   justify-content: space-between;
   flex: 0 1 600px;
 }
+
+#nav-links a,
+#logout-link {
+  text-decoration: none;
+  color: red;
+  cursor: pointer;
+}
+
+#nav-links a:hover,
+#logout-link:hover {
+  color: rgb(162, 11, 11);
+}
