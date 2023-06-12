@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from '../components/header/header';
 import Nav from '../components/nav/nav';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { fetchMyProfile } from '../api';
 
 function Root() {
@@ -25,7 +25,7 @@ function Root() {
   return (
     <>
       <Header />
-      <Nav />
+      <Nav myProfile={myProfile} />
       <div id="main">
         <Outlet
           context={{

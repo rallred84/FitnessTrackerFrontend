@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './login.css';
 import { registerUser, loginUser } from '../../api';
-import { useOutletContext } from 'react-router';
+import { useNavigate, useOutletContext } from 'react-router';
 
 const Login = () => {
   const [registerUsername, setRegisterUsername] = useState('');
@@ -13,6 +13,7 @@ const Login = () => {
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [loginFormError, setLoginFormError] = useState();
+  const navigate = useNavigate();
 
   async function handleRegister(e) {
     e.preventDefault();
@@ -32,11 +33,13 @@ const Login = () => {
     const newUser = await registerUser(registerUsername, registerPassword);
     if (!newUser.user) {
       setRegisterFormError(newUser.error);
+      return;
     }
 
     console.log(newUser);
     localStorage.setItem('token', newUser.token);
     setToken(newUser.token);
+    navigate('/my-routines');
   }
 
   async function handleLogin(e) {
@@ -49,9 +52,8 @@ const Login = () => {
     console.log(loggedInUser);
     localStorage.setItem('token', loggedInUser.token);
     setToken(loggedInUser.token);
+    navigate('/my-routines');
   }
-
-  console.log(myProfile);
 
   return (
     <>
@@ -96,7 +98,6 @@ const Login = () => {
         <button type="submit">Login</button>
         {loginFormError}
       </form>
-      <p>{myProfile.id && `Logged in as ${myProfile.username}`}</p>
     </>
   );
 };
