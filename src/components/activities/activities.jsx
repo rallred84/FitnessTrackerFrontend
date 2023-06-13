@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getAllActivities } from '../../api';
+import { useOutletContext } from 'react-router';
 
 const Activities = () => {
-  const [allActivities, setAllActivities] = useState([]);
+  const { allActivities, setAllActivities } = useOutletContext();
 
   useEffect(() => {
     (async () => {

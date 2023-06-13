@@ -6,7 +6,13 @@ const SingleRoutine = () => {
 
   const routine = allRoutines.find((routine) => routine.id == routineId);
 
-  return <div>Single Routine: {routine.name}</div>;
+  return (
+    <>
+      <h2>{routine.name}</h2>
+      <h3>Created by {routine.creatorName}</h3>
+      <p>Goal: {routine.goal}</p>
+    </>
+  );
 };
 
 export default SingleRoutine;

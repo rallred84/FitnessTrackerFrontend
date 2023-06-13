@@ -8,6 +8,7 @@ function Root() {
   const [token, setToken] = useState('');
   const [myProfile, setMyProfile] = useState({});
   const [allRoutines, setAllRoutines] = useState([]);
+  const [allActivities, setAllActivities] = useState([]);
 
   useEffect(() => {
     //If Token exists in local storage, set it to state
@@ -32,6 +33,8 @@ function Root() {
           context={{
             allRoutines,
             setAllRoutines,
+            allActivities,
+            setAllActivities,
             token,
             setToken,
             myProfile,

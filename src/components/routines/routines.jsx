@@ -36,11 +36,15 @@ const Routines = () => {
             <p>Goal: {routine.goal}</p>
             <p>
               Activities Included:{' '}
-              {routine.activities.length === 0
-                ? 'N/A'
-                : routine.activities
+              {routine.activities.length === 0 ? (
+                'None'
+              ) : (
+                <p>
+                  {routine.activities
                     .map((activity) => activity.name)
                     .join(', ')}
+                </p>
+              )}
             </p>
           </div>
         );
