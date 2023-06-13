@@ -1,0 +1,15 @@
+.routine-card,
+.activity-card {
+  border: 1px solid black;
+  border-radius: 7px;
+  box-shadow: 4px 4px 4px lightgray;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: rgb(239, 246, 252);
+}
+
+.routine-card:hover,
+.activity-card:hover {
+  background-color: rgb(212, 232, 248);
+  cursor: pointer;
+}

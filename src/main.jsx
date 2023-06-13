@@ -8,6 +8,7 @@ import Routines from './components/routines/routines';
 import MyRoutines from './components/myRoutines/myRoutines';
 import Activities from './components/activities/activities';
 import Login from './components/login/login';
+import SingleRoutine from './components/routines/singleRoutine';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
         path: '/routines',
         element: <Routines />,
       },
+      {
+        path: '/routines/:routineId',
+        element: <SingleRoutine />,
+      },
+
       {
         path: '/my-routines',
         element: <MyRoutines />,

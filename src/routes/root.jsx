@@ -7,6 +7,7 @@ import { fetchMyProfile } from '../api';
 function Root() {
   const [token, setToken] = useState('');
   const [myProfile, setMyProfile] = useState({});
+  const [allRoutines, setAllRoutines] = useState([]);
 
   useEffect(() => {
     //If Token exists in local storage, set it to state
@@ -29,6 +30,8 @@ function Root() {
       <div id="main">
         <Outlet
           context={{
+            allRoutines,
+            setAllRoutines,
             token,
             setToken,
             myProfile,

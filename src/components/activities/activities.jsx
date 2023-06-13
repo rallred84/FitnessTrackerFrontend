@@ -14,9 +14,14 @@ const Activities = () => {
 
   return (
     <>
-      <h4>Returning {allActivities.length} activities...</h4>
+      <p>Returning {allActivities.length} activities...</p>
       {allActivities.map((activity) => {
-        return <p key={activity.id}>{activity.name}</p>;
+        return (
+          <div key={activity.id} className="activity-card">
+            <h4>{activity.name}</h4>
+            <p>Description: {activity.description}</p>
+          </div>
+        );
       })}
     </>
   );
