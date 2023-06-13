@@ -91,7 +91,42 @@ export async function getAllRoutines() {
     const response = await fetch(`${BASE_URL}/routines`);
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+//ACTIVITIES
+//GET/activities
+export async function getAllActivities() {
+  try {
+    const response = await fetch(`${BASE_URL}/activities`);
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+//POST/ACTIVITIES
+//Create a new activity
+
+export async function createActivity(name, description) {
+  try {
+    const response = await fetch(`${BASE_URL}/activities`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        description,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (err) {
     console.error(err);
   }
 }
