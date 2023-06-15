@@ -23,32 +23,52 @@ const Routines = () => {
 
   return (
     <>
-      <p>Returning {allRoutines.length} routines...</p>
-      {allRoutines.map((routine) => {
-        return (
-          <div
-            className="routine-card"
-            key={routine.id}
-            onClick={(e) => handleRoutineSelect(routine)}
-          >
-            <h4>{routine.name}</h4>
-            <p>Created by {routine.creatorName}</p>
-            <p>Goal: {routine.goal}</p>
-            <p>
-              Activities Included:{' '}
-              {routine.activities.length === 0 ? (
-                'None'
-              ) : (
-                <p>
-                  {routine.activities
-                    .map((activity) => activity.name)
-                    .join(', ')}
-                </p>
-              )}
-            </p>
-          </div>
-        );
-      })}
+      <div id="routine-search">
+        <p>Returning {allRoutines.length} routines...</p>
+      </div>
+      <div id="routines-list">
+        {allRoutines.map((routine) => {
+          return (
+            <div className="routine-card" key={routine.id}>
+              <div className="routine-card-top">
+                <div className="routine-details">
+                  <h4 className="routine-name">{routine.name}</h4>
+                  <p className="routine-creator">
+                    Created by {routine.creatorName}
+                  </p>
+                  <p className="routine-goal">Goal: {routine.goal}</p>
+                </div>
+                <div
+                  className="try-routine-button"
+                  onClick={(e) => handleRoutineSelect(routine)}
+                >
+                  Try Now!
+                </div>
+              </div>
+              <div>
+                {routine.activities.length > 0 && (
+                  <>
+                    <p className="routine-activities-header">
+                      Activities Included:{' '}
+                    </p>
+
+                    <div className="routine-activity-bubble-container">
+                      {routine.activities.map((activity) => (
+                        <span
+                          key={activity.id}
+                          className="routine-activity-bubble"
+                        >
+                          {activity.name}
+                        </span>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };

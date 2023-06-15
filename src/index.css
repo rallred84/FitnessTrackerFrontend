@@ -2,6 +2,15 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#website-colors {
+  color: #586ba4;
+  color: #324376;
+  color: #f4faff;
+  color: #f68e5f;
+  color: #8a897c;
 }
 
 #root {
@@ -16,7 +25,8 @@
 }
 
 #main {
-  flex: 1 0;
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
   margin-top: 10px;
 }

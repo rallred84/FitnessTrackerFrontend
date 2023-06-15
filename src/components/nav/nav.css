@@ -1,13 +1,12 @@
 #nav {
   display: flex;
   justify-content: center;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-top: 2px solid #324376;
+  border-bottom: 2px solid #324376;
   padding: 10px 0;
 }
 
 #nav-links {
-  color: red;
   display: flex;
   justify-content: space-between;
   flex: 0 1 600px;
@@ -16,11 +15,11 @@
 #nav-links a,
 #logout-link {
   text-decoration: none;
-  color: red;
+  color: #324376;
   cursor: pointer;
 }
 
 #nav-links a:hover,
 #logout-link:hover {
-  color: rgb(162, 11, 11);
+  color: #f68e5f;
 }

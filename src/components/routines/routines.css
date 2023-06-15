@@ -1,15 +1,82 @@
+#routines-list {
+  overflow: auto;
+  flex: 1 0 0;
+}
+
 .routine-card,
 .activity-card {
-  border: 1px solid black;
+  margin: 5px;
+  border: 1px solid #324376;
   border-radius: 7px;
-  box-shadow: 4px 4px 4px lightgray;
+  box-shadow: 2px 2px 2px #8a897c;
   margin-top: 15px;
   padding: 10px;
-  background-color: rgb(239, 246, 252);
+  background-color: #f4faff;
 }
 
 .routine-card:hover,
 .activity-card:hover {
   background-color: rgb(212, 232, 248);
+}
+
+.routine-card-top {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 20px;
+}
+
+.routine-name {
+  font-size: 25px;
+}
+
+.routine-creator,
+.routine-goal,
+.try-routine-button {
+  font-size: 20px;
+}
+
+.routine-creator {
+  font-style: italic;
+}
+
+.try-routine-button {
+  padding: 10px 60px;
+  align-self: center;
+  border-radius: 10px;
+  background-color: #f68e5f;
+  color: white;
+  margin-right: 40px;
   cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.try-routine-button:hover {
+  background-color: #e66529;
+  padding: 15px 65px;
+  transition-duration: 500ms;
+  transition-property: padding;
+}
+
+.routine-activities-header {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  border-top: 2px solid #324376;
+  border-bottom: 2px solid #324376;
+  margin: 20px 100px 5px;
+}
+
+.routine-activity-bubble-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 30px;
+}
+
+.routine-activity-bubble {
+  background-color: #f68e5f;
+  box-shadow: 2px 2px 2px #586ba4;
+  color: white;
+  margin: 10px 10px 10px 0;
+  padding: 10px 15px;
+  border-radius: 15px;
 }

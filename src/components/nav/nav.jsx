@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Nav = ({ myProfile, setMyProfile }) => {
   const navigate = useNavigate();
-  console.log(myProfile);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
