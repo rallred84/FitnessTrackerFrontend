@@ -45,26 +45,24 @@ const Routines = () => {
                   Try Now!
                 </div>
               </div>
-              <div>
-                {routine.activities.length > 0 && (
-                  <>
-                    <p className="routine-activities-header">
-                      Activities Included:{' '}
-                    </p>
+              {routine.activities.length > 0 && (
+                <div>
+                  <p className="routine-activities-header">
+                    Activities Included:{' '}
+                  </p>
 
-                    <div className="routine-activity-bubble-container">
-                      {routine.activities.map((activity) => (
-                        <span
-                          key={activity.id}
-                          className="routine-activity-bubble"
-                        >
-                          {activity.name}
-                        </span>
-                      ))}
-                    </div>
-                  </>
-                )}
-              </div>
+                  <div className="routine-activity-bubble-container">
+                    {routine.activities.map((activity) => (
+                      <span
+                        key={activity.id}
+                        className="routine-activity-bubble"
+                      >
+                        {activity.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           );
         })}

@@ -1,0 +1,45 @@
+#single-routine {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  margin: 10px 70px;
+}
+
+#single-routine-name {
+  font-size: 30px;
+  color: #324376;
+}
+
+#single-routine-goal,
+#single-routine-creator {
+  color: #f68e5f;
+  text-shadow: 1px 1px 1px #586ba4;
+}
+
+#single-routine-header {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px 40px;
+  background-color: #f4faff;
+  border: 1px solid #586ba4;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px #586ba4;
+}
+
+#single-routine-activity-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  overflow: auto;
+}
+
+.single-routine-activity {
+  margin-bottom: 25px;
+}
+
+#activity-details-label {
+  margin-bottom: 10px;
+}
