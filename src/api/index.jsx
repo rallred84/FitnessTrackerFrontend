@@ -96,6 +96,31 @@ export async function getAllRoutines() {
   }
 }
 
+//POST/routines
+//creates a new routine
+
+export async function createRoutine(token, name, goal, isPublic) {
+  try {
+    const response = await fetch(`${BASE_URL}/routines`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name,
+        goal,
+        isPublic,
+      }),
+    });
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 //ACTIVITIES
 //GET/activities
 export async function getAllActivities() {

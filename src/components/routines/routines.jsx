@@ -1,10 +1,12 @@
-import { useEffect } from 'react';
-import { getAllRoutines } from '../../api';
+import { useEffect, useState } from 'react';
+import { getAllRoutines, createRoutine } from '../../api';
 import './routines.css';
 import { useNavigate, useOutletContext } from 'react-router';
 
 const Routines = () => {
-  const { allRoutines, setAllRoutines } = useOutletContext();
+  const { allRoutines, setAllRoutines, myProfile } = useOutletContext();
+
+  const [createWindowOpen, setCreateWindowOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,9 +25,37 @@ const Routines = () => {
 
   return (
     <>
-      <div id="routine-search">
-        <p>Returning {allRoutines.length} routines...</p>
-      </div>
+      {myProfile.id && (
+        <div id="routines-header">
+          <div>
+            <p>Returning {allRoutines.length} routines...</p>
+            <div id="routine-search">
+              <form action="filter-routines">
+                <input
+                  id="filter-routines-search"
+                  type="text"
+                  placeholder="Enter a Keyword to narrow your routine search"
+                />
+                <button id="filter-routines-button">Filter Routines</button>
+              </form>
+            </div>
+          </div>
+          <div>
+            <button id="open-create-routine">Create New Routine</button>
+          </div>
+        </div>
+      )}
+
+      {!createWindowOpen && (
+        <div id="create-post-form">
+          <h3>Create Your Routine</h3>
+          <form action="create-post">
+            <input type="text" placeholder="Routine Name" />
+            <input type="text" placeholder="Routine Goal" />
+          </form>
+        </div>
+      )}
+
       <div id="routines-list">
         {allRoutines.map((routine) => {
           return (
@@ -40,7 +70,7 @@ const Routines = () => {
                 </div>
                 <div
                   className="try-routine-button"
-                  onClick={(e) => handleRoutineSelect(routine)}
+                  onClick={() => handleRoutineSelect(routine)}
                 >
                   Try Now!
                 </div>

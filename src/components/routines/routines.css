@@ -1,6 +1,41 @@
+#filter-routines-search {
+  width: 300px;
+}
+
+#routines-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 #routines-list {
   overflow: auto;
   flex: 1 0 0;
+}
+
+#open-create-routine,
+#filter-routines-button {
+  background-color: #586ba4;
+  color: white;
+}
+
+#filter-routines-button {
+  margin-left: 10px;
+  padding: 0 10px;
+}
+
+#open-create-routine {
+  padding: 5px 10px;
+}
+
+#create-post-form {
+  background-color: red;
+  width: 70%;
+  align-self: center;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .routine-card,

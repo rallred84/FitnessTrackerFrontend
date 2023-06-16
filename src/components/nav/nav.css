@@ -14,6 +14,7 @@
 
 #nav-links a,
 #logout-link {
+  font-weight: 600;
   text-decoration: none;
   color: #324376;
   cursor: pointer;
