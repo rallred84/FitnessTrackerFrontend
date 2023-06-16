@@ -1,5 +1,5 @@
 #filter-routines-search {
-  width: 300px;
+  width: 380px;
 }
 
 #routines-header {
@@ -13,7 +13,7 @@
   flex: 1 0 0;
 }
 
-#open-create-routine,
+#open-close-create-routine,
 #filter-routines-button {
   background-color: #586ba4;
   color: white;
@@ -24,11 +24,11 @@
   padding: 0 10px;
 }
 
-#open-create-routine {
+#open-close-create-routine {
   padding: 5px 10px;
 }
 
-#create-post-form {
+#create-routine-form {
   background-color: red;
   width: 70%;
   align-self: center;
@@ -36,6 +36,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f68e5f;
+  box-shadow: 8px 8px 8px #586ba4;
+  transition-duration: 500ms;
+}
+
+#create-routine-form-inputs {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+#create-routine-form-inputs > * {
+  margin-top: 5px;
+}
+
+#create-routine-button {
+  background-color: #324376;
+  color: white;
+  padding: 5px;
+  font-size: 18px;
+}
+
+#create-routine-buttons > button {
+  margin: 5px 10px;
+  width: 150px;
 }
 
 .routine-card,
