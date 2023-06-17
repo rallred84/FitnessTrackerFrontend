@@ -31,7 +31,7 @@ const SingleRoutine = () => {
         }
       })();
     }
-  }, [routine]);
+  }, [routine, myProfile]);
 
   return (
     <>
@@ -67,7 +67,10 @@ const SingleRoutine = () => {
           </div>
         </div>
       ) : (
-        <h2>A Routine with that ID does not exist </h2>
+        <h4>
+          A Routine with that ID does not exist or is a Private routine of
+          another user{' '}
+        </h4>
       )}
     </>
   );
