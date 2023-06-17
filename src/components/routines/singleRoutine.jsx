@@ -1,11 +1,12 @@
 import { useOutletContext, useParams } from 'react-router';
 import './singleRoutine.css';
-import { useEffect } from 'react';
-import { getAllRoutines } from '../../api';
+import { useEffect, useState } from 'react';
+import { getAllRoutines, seeUserPublicRoutines } from '../../api';
 
 const SingleRoutine = () => {
   const { routineId } = useParams();
-  const { allRoutines, setAllRoutines } = useOutletContext();
+  const { allRoutines, setAllRoutines, myProfile, token } = useOutletContext();
+  const [routine, setRoutine] = useState({});
 
   useEffect(() => {
     if (!allRoutines[0]) {
@@ -14,16 +15,36 @@ const SingleRoutine = () => {
         setAllRoutines(routines);
       })();
     }
-  }, []);
+    let routineValue = allRoutines.find((routine) => routine.id == routineId);
+    if (routineValue) {
+      setRoutine(routineValue);
+    }
 
-  const routine = allRoutines.find((routine) => routine.id == routineId);
+    if (!routine.id && myProfile.id) {
+      (async () => {
+        const routines = await seeUserPublicRoutines(token, myProfile.username);
+        for (let r of routines) {
+          if (r.id == routineId) {
+            console.log(r);
+            setRoutine(r);
+          }
+        }
+      })();
+    }
+  }, [routine]);
 
   return (
     <>
-      {routine ? (
+      {routine.id ? (
         <div id="single-routine">
           <div id="single-routine-header">
             <h2 id="single-routine-name">{routine.name}</h2>
+            {!routine.isPublic && (
+              <p>
+                {'('}This routine is set to "Private" and cannot be shared with
+                others"{')'}
+              </p>
+            )}
             <h3 id="single-routine-creator">
               Created by {routine.creatorName}
             </h3>

@@ -1,0 +1,26 @@
+#my-routines-body {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#my-routines-list {
+  flex: 1 0 0;
+  overflow: auto;
+}
+
+.my-routine-cards {
+  background-color: #f68e5f;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-routine-button-bank {
+  align-self: center;
+}
+.my-routine-button-bank > button {
+  padding: 3px 10px;
+  margin: 10px 20px;
+}
