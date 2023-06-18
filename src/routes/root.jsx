@@ -26,7 +26,7 @@ function Root() {
 
   return (
     <>
-      <Header />
+      <Header myProfile={myProfile} />
       <Nav myProfile={myProfile} setMyProfile={setMyProfile} />
       <div id="main">
         <Outlet

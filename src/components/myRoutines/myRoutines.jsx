@@ -1,5 +1,5 @@
 import { useNavigate, useOutletContext } from 'react-router';
-import { seeUserPublicRoutines } from '../../api';
+import { seeUserPublicRoutines, deleteRoutine } from '../../api';
 import { useEffect, useState } from 'react';
 import './myRoutines.css';
 import PopUpEdit from '../utils/popUpEdit';
@@ -20,6 +20,12 @@ const MyRoutines = () => {
       })();
     }
   }, [myProfile]);
+
+  const handleDelete = async (routineId) => {
+    await deleteRoutine(token, routineId);
+    const routines = await seeUserPublicRoutines(token, myProfile.username);
+    setUserRoutines(routines);
+  };
 
   return (
     <>
@@ -79,7 +85,9 @@ const MyRoutines = () => {
                     )}
 
                     <button>Edit Routine</button>
-                    <button>Delete</button>
+                    <button onClick={() => handleDelete(routine.id)}>
+                      Delete
+                    </button>
                     <button onClick={() => navigate(`/routines/${routine.id}`)}>
                       See Details
                     </button>

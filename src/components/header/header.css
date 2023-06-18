@@ -3,6 +3,14 @@
   flex-direction: column;
   align-items: center;
   margin: 10px;
+  position: relative;
+}
+
+#logged-in-declaration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #324376;
 }
 
 #company-name {

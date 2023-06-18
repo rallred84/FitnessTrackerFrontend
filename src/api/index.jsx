@@ -153,6 +153,26 @@ export async function addActivityToRoutine(
   }
 }
 
+//DELETE/routines/:routineId
+//Permanentyly deletes a routine
+
+export async function deleteRoutine(token, routineId) {
+  try {
+    const response = await fetch(`${BASE_URL}/routines/${routineId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 //ACTIVITIES
 //GET/activities
 export async function getAllActivities() {
