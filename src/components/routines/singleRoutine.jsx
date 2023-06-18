@@ -42,7 +42,7 @@ const SingleRoutine = () => {
             {!routine.isPublic && (
               <p>
                 {'('}This routine is set to "Private" and cannot be shared with
-                others"{')'}
+                others{')'}
               </p>
             )}
             <h3 id="single-routine-creator">

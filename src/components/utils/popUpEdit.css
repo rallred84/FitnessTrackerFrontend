@@ -1,0 +1,75 @@
+#edit-screen {
+  background-color: #f68f5f57;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#edit-window {
+  height: 60%;
+  width: 70%;
+  background-color: #f4faff;
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ADD ACTIVITY */
+
+#add-activity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#add-activity > form {
+  display: flex;
+  flex-direction: column;
+}
+
+#add-activity button {
+  padding: 5px;
+  margin: 10px 0;
+  font-size: 18px;
+  background-color: #586ba4;
+  color: #f4faff;
+}
+
+#add-activity > p {
+  width: 70%;
+  margin: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+#count-and-duration {
+  margin: 7px 0;
+  align-self: center;
+}
+
+#count-and-duration > label {
+  margin: 0 5px 0 10px;
+}
+
+#count-and-duration > input {
+  width: 110px;
+}
+
+#activity-add-select {
+  width: 400px;
+  font-size: 25px;
+  position: relative;
+}
+
+#activity-add-select-selected {
+  width: 50%;
+  display: none;
+}

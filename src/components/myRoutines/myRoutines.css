@@ -4,6 +4,10 @@
   flex-direction: column;
 }
 
+#my-routines-body > p {
+  margin-bottom: 10px;
+}
+
 #my-routines-list {
   flex: 1 0 0;
   overflow: auto;

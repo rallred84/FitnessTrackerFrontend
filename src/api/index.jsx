@@ -121,12 +121,45 @@ export async function createRoutine(token, name, goal, isPublic) {
   }
 }
 
+//POST/routines/:routineId/activities
+//Attaches a single activity to a routine
+
+export async function addActivityToRoutine(
+  routineId,
+  activityId,
+  count,
+  duration
+) {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/routines/${routineId}/activities`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          activityId,
+          count,
+          duration,
+        }),
+      }
+    );
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 //ACTIVITIES
 //GET/activities
 export async function getAllActivities() {
   try {
     const response = await fetch(`${BASE_URL}/activities`);
     const data = await response.json();
+    console.log(data);
     return data;
   } catch (err) {
     console.error(err);
