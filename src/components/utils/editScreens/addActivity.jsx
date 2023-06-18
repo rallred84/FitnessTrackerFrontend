@@ -115,6 +115,9 @@ const AddActivity = (props) => {
         <Link to="/activities">visit the activities page</Link> to see a
         detailed list and search by keyword
       </p>
+      <div id="cancel-button" onClick={() => setEditMode('')}>
+        Cancel Add Activity
+      </div>
     </div>
   );
 };

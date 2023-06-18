@@ -73,3 +73,14 @@
   width: 50%;
   display: none;
 }
+
+#cancel-button {
+  width: 225px;
+  color: white;
+  font-weight: bold;
+  background-color: red;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px gray;
+}
