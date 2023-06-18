@@ -9,6 +9,10 @@ const PopUpEdit = (props) => {
           <AddActivity
             setEditMode={props.setEditMode}
             routine={props.routine}
+            setUserRoutines={props.setUserRoutines}
+            token={props.token}
+            myProfile={props.myProfile}
+            setAllRoutines={props.setAllRoutines}
           />
         )}
       </div>

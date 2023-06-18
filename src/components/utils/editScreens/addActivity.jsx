@@ -1,13 +1,23 @@
 import { useEffect, useState } from 'react';
-import { addActivityToRoutine, getAllActivities } from '../../../api';
-import { Link, useNavigate } from 'react-router-dom';
+import {
+  addActivityToRoutine,
+  getAllActivities,
+  seeUserPublicRoutines,
+  getAllRoutines,
+} from '../../../api';
+import { Link } from 'react-router-dom';
 
 const AddActivity = (props) => {
-  const navigate = useNavigate();
-
   const [activitiesList, setActivitiesList] = useState([]);
 
-  const { routine, setEditMode } = props;
+  const {
+    routine,
+    setEditMode,
+    setUserRoutines,
+    token,
+    myProfile,
+    setAllRoutines,
+  } = props;
   const [activityIDToAdd, setActivityIDToAdd] = useState('');
   const [count, setCount] = useState('');
   const [duration, setDuration] = useState('');
@@ -46,6 +56,13 @@ const AddActivity = (props) => {
     }
 
     if (addedActivity.id) {
+      const userRoutines = await seeUserPublicRoutines(
+        token,
+        myProfile.username
+      );
+      setUserRoutines(userRoutines);
+      const allRoutines = await getAllRoutines();
+      setAllRoutines(allRoutines);
       setEditMode('');
     }
   };

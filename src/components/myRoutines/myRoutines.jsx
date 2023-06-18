@@ -5,7 +5,7 @@ import './myRoutines.css';
 import PopUpEdit from '../utils/popUpEdit';
 
 const MyRoutines = () => {
-  const { myProfile, token } = useOutletContext();
+  const { myProfile, token, setAllRoutines } = useOutletContext();
   const [userRoutines, setUserRoutines] = useState([]);
   const [editMode, setEditMode] = useState('');
   const [editRoutine, setEditRoutine] = useState({});
@@ -71,6 +71,10 @@ const MyRoutines = () => {
                         setEditMode={setEditMode}
                         editMode={editMode}
                         routine={editRoutine}
+                        setUserRoutines={setUserRoutines}
+                        token={token}
+                        myProfile={myProfile}
+                        setAllRoutines={setAllRoutines}
                       />
                     )}
 
