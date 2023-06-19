@@ -84,7 +84,26 @@ const MyRoutines = () => {
                       />
                     )}
 
-                    <button>Edit Routine</button>
+                    <button
+                      onClick={() => {
+                        setEditMode('Edit Routine');
+                        setEditRoutine(routine);
+                      }}
+                    >
+                      Edit Routine
+                    </button>
+                    {editMode === 'Edit Routine' && (
+                      <PopUpEdit
+                        setEditMode={setEditMode}
+                        editMode={editMode}
+                        routine={editRoutine}
+                        token={token}
+                        setUserRoutines={setUserRoutines}
+                        setAllRoutines={setAllRoutines}
+                        myProfile={myProfile}
+                      />
+                    )}
+
                     <button onClick={() => handleDelete(routine.id)}>
                       Delete
                     </button>

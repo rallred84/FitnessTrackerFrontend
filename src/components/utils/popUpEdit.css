@@ -84,3 +84,15 @@
   border-radius: 10px;
   box-shadow: 2px 2px 2px gray;
 }
+
+#edit-routine-window {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  align-items: center;
+}
+
+#edit-routine-window form {
+  width: 100%;
+  margin-bottom: 20px;
+}

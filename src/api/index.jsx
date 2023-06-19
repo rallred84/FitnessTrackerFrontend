@@ -153,6 +153,27 @@ export async function addActivityToRoutine(
   }
 }
 
+//PATCH/routines/:routineId
+//Edit existing routine
+
+export async function editRoutine(token, routineId, editFields) {
+  try {
+    const response = await fetch(`${BASE_URL}/routines/${routineId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(editFields),
+    });
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 //DELETE/routines/:routineId
 //Permanentyly deletes a routine
 

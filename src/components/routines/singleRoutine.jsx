@@ -14,10 +14,11 @@ const SingleRoutine = () => {
         const routines = await getAllRoutines();
         setAllRoutines(routines);
       })();
-    }
-    let routineValue = allRoutines.find((routine) => routine.id == routineId);
-    if (routineValue) {
-      setRoutine(routineValue);
+    } else {
+      let routineValue = allRoutines.find((routine) => routine.id == routineId);
+      if (routineValue) {
+        setRoutine(routineValue);
+      }
     }
 
     if (!routine.id && myProfile.id) {
@@ -31,7 +32,7 @@ const SingleRoutine = () => {
         }
       })();
     }
-  }, [routine, myProfile]);
+  }, [routine, myProfile, allRoutines]);
 
   return (
     <>

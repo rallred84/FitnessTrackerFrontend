@@ -22,7 +22,6 @@ const Routines = () => {
   }, []);
 
   const handleRoutineSelect = (routine) => {
-    console.log(routine);
     navigate(`/routines/${routine.id}`);
   };
 

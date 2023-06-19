@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const CreateRoutineForm = ({
   createWindowOpen,
@@ -11,6 +12,8 @@ const CreateRoutineForm = ({
   const [routineGoal, setRoutineGoal] = useState('');
   const [routineIsPublic, setRoutineIsPublic] = useState(true);
   const [createRoutineError, setCreateRoutineError] = useState('');
+
+  const navigate = useNavigate();
 
   const handleRoutineCreate = async (e) => {
     e.preventDefault();
