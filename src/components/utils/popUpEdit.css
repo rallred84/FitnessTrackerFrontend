@@ -96,3 +96,27 @@
   width: 100%;
   margin-bottom: 20px;
 }
+
+#duration-and-count-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#duration-and-count-edit > form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+#duration-and-count-edit input,
+#duration-and-count-edit button {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+#duration-and-count-edit button {
+  background-color: #324376;
+  color: white;
+}

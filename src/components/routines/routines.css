@@ -1,8 +1,10 @@
-#filter-routines-search {
+#filter-routines-search,
+#filter-activities-search {
   width: 380px;
 }
 
-#routines-header {
+#routines-header,
+#activities-header {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -14,21 +16,26 @@
   flex: 1 0 0;
 }
 
+#open-close-create-activity,
+#filter-activities-button,
 #open-close-create-routine,
 #filter-routines-button {
   background-color: #586ba4;
   color: white;
 }
 
-#filter-routines-button {
+#filter-routines-button,
+#filter-activities-button {
   margin-left: 10px;
   padding: 0 10px;
 }
 
+#open-close-create-activity,
 #open-close-create-routine {
   padding: 5px 10px;
 }
 
+#create-activity-form,
 #create-routine-form {
   background-color: red;
   width: 70%;
@@ -43,16 +50,19 @@
   transition-duration: 500ms;
 }
 
+#create-activity-form-inputs,
 #create-routine-form-inputs {
   display: flex;
   flex-direction: column;
   width: 70%;
 }
 
+#create-activity-form-inputs > *,
 #create-routine-form-inputs > * {
   margin-top: 5px;
 }
 
+#create-activity-button,
 #create-routine-button {
   background-color: #324376;
   color: white;
@@ -60,7 +70,7 @@
   font-size: 18px;
 }
 
-#create-routine-buttons > button {
+#create-activity-buttons > button #create-routine-buttons > button {
   margin: 5px 10px;
   width: 150px;
 }

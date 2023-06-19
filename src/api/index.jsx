@@ -210,12 +210,13 @@ export async function getAllActivities() {
 //POST/ACTIVITIES
 //Create a new activity
 
-export async function createActivity(name, description) {
+export async function createActivity(token, name, description) {
   try {
     const response = await fetch(`${BASE_URL}/activities`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         name,
@@ -243,6 +244,29 @@ export async function removeActivityFromRoutine(routineActivityId, token) {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
+      }
+    );
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+//PATCH /routine_activities/:routineActivityId
+
+export async function editCountAndDuration(token, routineId, editFields) {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/routine_activities/${routineId}`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(editFields),
       }
     );
     const result = await response.json();

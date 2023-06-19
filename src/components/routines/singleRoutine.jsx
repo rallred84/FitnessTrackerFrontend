@@ -7,11 +7,13 @@ import {
   removeActivityFromRoutine,
   fetchMyProfile,
 } from '../../api';
+import PopUpEdit from '../utils/popUpEdit.jsx';
 
 const SingleRoutine = () => {
   const { routineId } = useParams();
   const { allRoutines, setAllRoutines, myProfile, token } = useOutletContext();
   const [routine, setRoutine] = useState({});
+  const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
     if (!allRoutines[0]) {
@@ -81,8 +83,18 @@ const SingleRoutine = () => {
                   <p>Duration: {activity.duration}</p>
                   {routine.creatorName === myProfile.username && (
                     <div className="edit-routine-activities">
-                      <button>Change Count and/or Duration</button>
-
+                      <button onClick={() => setEditMode('Duration/Count')}>
+                        Change Count and/or Duration
+                      </button>
+                      {editMode === 'Duration/Count' && (
+                        <PopUpEdit
+                          token={token}
+                          editMode={editMode}
+                          setEditMode={setEditMode}
+                          routine={routine}
+                          activity={activity}
+                        />
+                      )}
                       <button
                         onClick={() => handleDelete(activity.routineActivityId)}
                       >

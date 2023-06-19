@@ -1,22 +1,35 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getAllActivities } from '../../api';
 import { useOutletContext } from 'react-router';
+import ActivitiesHeader from './activitesSubcomponents/activitiesHeader';
+import ActivityCreate from './activitesSubcomponents/activityCreate';
 
 const Activities = () => {
-  const { allActivities, setAllActivities } = useOutletContext();
+  const { allActivities, setAllActivities, myProfile, token } =
+    useOutletContext();
+  const [displayedActivities, setDisplayedActivities] = useState([]);
+  const [createWindowOpen, setCreateWindowOpen] = useState(false);
 
   useEffect(() => {
     (async () => {
       const allActivities = await getAllActivities();
       setAllActivities(allActivities);
-      console.log(allActivities[0]);
+      setDisplayedActivities(allActivities);
     })();
   }, []);
 
   return (
     <>
-      <p>Returning {allActivities.length} activities...</p>
-      {allActivities.map((activity) => {
+      <ActivitiesHeader
+        createWindowOpen={createWindowOpen}
+        setCreateWindowOpen={setCreateWindowOpen}
+        allActivities={allActivities}
+        setDisplayedActivities={setDisplayedActivities}
+        displayedActivities={displayedActivities}
+        myProfile={myProfile}
+      />
+      <ActivityCreate createWindowOpen={createWindowOpen} token={token} />
+      {displayedActivities.map((activity) => {
         return (
           <div key={activity.id} className="activity-card">
             <h4>{activity.name}</h4>

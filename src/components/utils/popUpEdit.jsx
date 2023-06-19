@@ -1,4 +1,5 @@
 import AddActivity from './editScreens/addActivity';
+import DurationAndCount from './editScreens/durationAndCount';
 import EditRoutine from './editScreens/editRoutine';
 import './popUpEdit.css';
 
@@ -24,6 +25,14 @@ const PopUpEdit = (props) => {
             setUserRoutines={props.setUserRoutines}
             setAllRoutines={props.setAllRoutines}
             myProfile={props.myProfile}
+          />
+        )}
+        {props.editMode === 'Duration/Count' && (
+          <DurationAndCount
+            token={props.token}
+            activity={props.activity}
+            setEditMode={props.setEditMode}
+            routine={props.routine}
           />
         )}
       </div>
