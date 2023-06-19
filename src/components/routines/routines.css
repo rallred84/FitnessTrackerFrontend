@@ -10,7 +10,8 @@
   align-items: center;
 }
 
-#routines-list {
+#routines-list,
+#activities-list {
   margin-top: 15px;
   overflow: auto;
   flex: 1 0 0;

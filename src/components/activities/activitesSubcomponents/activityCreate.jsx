@@ -4,7 +4,7 @@ import { createActivity } from '../../../api';
 const ActivityCreate = ({ createWindowOpen, token }) => {
   const [activityName, setActivityName] = useState('');
   const [activityDescription, setActivityDescription] = useState('');
-  const [createRoutineError, setCreateRoutineError] = useState('');
+  const [createActivityError, setCreateActivityError] = useState('');
 
   const handleActivityCreate = async (e) => {
     e.preventDefault();
@@ -13,6 +13,11 @@ const ActivityCreate = ({ createWindowOpen, token }) => {
       activityName,
       activityDescription
     );
+
+    if (newActivity.error) {
+      setCreateActivityError('That activity already exists');
+    }
+    window.location.reload(false);
   };
   return (
     <>
@@ -38,7 +43,7 @@ const ActivityCreate = ({ createWindowOpen, token }) => {
             />
             <button id="create-activity-button">Create!!</button>
           </form>
-          {createRoutineError}
+          {createActivityError}
         </div>
       )}
     </>

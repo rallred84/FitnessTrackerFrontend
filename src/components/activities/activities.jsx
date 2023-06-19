@@ -29,14 +29,16 @@ const Activities = () => {
         myProfile={myProfile}
       />
       <ActivityCreate createWindowOpen={createWindowOpen} token={token} />
-      {displayedActivities.map((activity) => {
-        return (
-          <div key={activity.id} className="activity-card">
-            <h4>{activity.name}</h4>
-            <p>Description: {activity.description}</p>
-          </div>
-        );
-      })}
+      <div id="activities-list">
+        {displayedActivities.map((activity) => {
+          return (
+            <div key={activity.id} className="activity-card">
+              <h4>{activity.name}</h4>
+              <p>Description: {activity.description}</p>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };

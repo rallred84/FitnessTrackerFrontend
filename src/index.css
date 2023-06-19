@@ -30,3 +30,13 @@
   flex: 1 0 0;
   margin-top: 10px;
 }
+
+.homepage p {
+  margin: 15px 0;
+}
+
+.homepage img {
+  margin: 15px 5px 15px 20px;
+  float: right;
+  width: 400px;
+}

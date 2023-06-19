@@ -1,14 +1,21 @@
 import { useNavigate, useOutletContext } from 'react-router';
-import { seeUserPublicRoutines, deleteRoutine } from '../../api';
+import {
+  seeUserPublicRoutines,
+  deleteRoutine,
+  getAllRoutines,
+  createRoutine,
+} from '../../api';
 import { useEffect, useState } from 'react';
 import './myRoutines.css';
 import PopUpEdit from '../utils/popUpEdit';
+import CreateRoutineForm from '../routines/routinesSubcomoponents/createRoutineForm';
 
 const MyRoutines = () => {
   const { myProfile, token, setAllRoutines } = useOutletContext();
   const [userRoutines, setUserRoutines] = useState([]);
   const [editMode, setEditMode] = useState('');
   const [editRoutine, setEditRoutine] = useState({});
+  const [createWindowOpen, setCreateWindowOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -41,10 +48,38 @@ const MyRoutines = () => {
           available to other users.{')'}
         </p>
         {userRoutines[0] ? (
-          <h3>Your Routines:</h3>
+          <>
+            <h3>Your Routines:</h3>
+            <p>
+              Don't See what you're looking for?{' '}
+              <span
+                className="click-here"
+                onClick={() => setCreateWindowOpen(true)}
+              >
+                Click here
+              </span>{' '}
+              to create a new routine!
+            </p>
+          </>
         ) : (
-          <h4>You do not have any routines yet. Click here to add some!</h4>
+          <h4>
+            You do not have any routines yet.{' '}
+            <span
+              className="click-here"
+              onClick={() => setCreateWindowOpen(true)}
+            >
+              Click here
+            </span>{' '}
+            to add some!
+          </h4>
         )}
+        <CreateRoutineForm
+          createWindowOpen={createWindowOpen}
+          createRoutine={createRoutine}
+          getAllRoutines={getAllRoutines}
+          setAllRoutines={setAllRoutines}
+          token={token}
+        />
         <div id="my-routines-list">
           {userRoutines[0] &&
             userRoutines.map((routine) => {
