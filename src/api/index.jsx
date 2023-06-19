@@ -229,3 +229,26 @@ export async function createActivity(name, description) {
     console.error(err);
   }
 }
+
+//DELETE /routine_activities/:routineActivityId
+//remove activity from routine
+
+export async function removeActivityFromRoutine(routineActivityId, token) {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/routine_activities/${routineActivityId}`,
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (err) {
+    console.error(err);
+  }
+}

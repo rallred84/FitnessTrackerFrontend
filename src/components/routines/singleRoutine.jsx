@@ -1,7 +1,12 @@
 import { useOutletContext, useParams } from 'react-router';
 import './singleRoutine.css';
 import { useEffect, useState } from 'react';
-import { getAllRoutines, seeUserPublicRoutines } from '../../api';
+import {
+  getAllRoutines,
+  seeUserPublicRoutines,
+  removeActivityFromRoutine,
+  fetchMyProfile,
+} from '../../api';
 
 const SingleRoutine = () => {
   const { routineId } = useParams();
@@ -32,7 +37,19 @@ const SingleRoutine = () => {
         }
       })();
     }
-  }, [routine, myProfile, allRoutines]);
+  });
+
+  const handleDelete = async (routineActivityId) => {
+    const removedRoutineActivity = await removeActivityFromRoutine(
+      routineActivityId,
+      token
+    );
+
+    if (removedRoutineActivity.success) {
+      //This command forces a reload of the page so that the page will re-render and the deleted activity will disappear
+      window.location.reload(false);
+    }
+  };
 
   return (
     <>
@@ -62,6 +79,17 @@ const SingleRoutine = () => {
                   <p>Description: {activity.description}</p>
                   <p>Count: {activity.count}</p>
                   <p>Duration: {activity.duration}</p>
+                  {routine.creatorName === myProfile.username && (
+                    <div className="edit-routine-activities">
+                      <button>Change Count and/or Duration</button>
+
+                      <button
+                        onClick={() => handleDelete(activity.routineActivityId)}
+                      >
+                        Delete Activity From Routine
+                      </button>
+                    </div>
+                  )}
                 </div>
               );
             })}

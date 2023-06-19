@@ -47,7 +47,7 @@ const EditRoutine = (props) => {
 
   return (
     <div id="edit-routine-window">
-      <h2>Editing Post: {routine.name}</h2>
+      <h2>Editing Routine: {routine.name}</h2>
       <p></p>
       <form
         action="create-post"

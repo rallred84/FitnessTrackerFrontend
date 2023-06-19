@@ -85,6 +85,7 @@
   display: flex;
   justify-content: space-between;
   margin: 10px 20px;
+  gap: 40px;
 }
 
 .routine-name {
@@ -92,8 +93,7 @@
 }
 
 .routine-creator,
-.routine-goal,
-.try-routine-button {
+.routine-goal {
   font-size: 20px;
 }
 
@@ -102,7 +102,12 @@
 }
 
 .try-routine-button {
-  padding: 10px 60px;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: bold;
+  width: 185px;
+  text-align: center;
+  padding: 10px 30px;
   align-self: center;
   border-radius: 10px;
   background-color: #f68e5f;
@@ -114,7 +119,8 @@
 
 .try-routine-button:hover {
   background-color: #e66529;
-  padding: 15px 65px;
+  padding: 15px 0px;
+  font-size: 16px;
   transition-duration: 500ms;
   transition-property: padding;
 }
@@ -141,4 +147,9 @@
   margin: 10px 10px 10px 0;
   padding: 10px 15px;
   border-radius: 15px;
+}
+
+.your-routine-message {
+  color: #f68e5f;
+  font-weight: bold;
 }

@@ -25,6 +25,8 @@
   align-self: center;
 }
 .my-routine-button-bank > button {
+  background-color: #586ba4;
+  color: white;
   padding: 3px 10px;
   margin: 10px 20px;
 }

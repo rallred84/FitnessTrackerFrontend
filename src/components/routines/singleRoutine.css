@@ -37,9 +37,18 @@
 }
 
 .single-routine-activity {
+  padding-bottom: 10px;
   margin-bottom: 25px;
+  border-bottom: 4px solid #f68e5f;
 }
 
 #activity-details-label {
   margin-bottom: 10px;
+}
+
+.edit-routine-activities > button {
+  background-color: #324376;
+  color: white;
+  padding: 10px 15px;
+  margin: 10px 20px 10px 0;
 }

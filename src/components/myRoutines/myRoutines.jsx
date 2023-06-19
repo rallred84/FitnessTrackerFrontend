@@ -108,7 +108,7 @@ const MyRoutines = () => {
                       Delete
                     </button>
                     <button onClick={() => navigate(`/routines/${routine.id}`)}>
-                      See Details
+                      See / Edit Activity Details
                     </button>
                   </div>
                 </div>

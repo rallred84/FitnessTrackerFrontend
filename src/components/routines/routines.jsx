@@ -54,13 +54,19 @@ const Routines = () => {
                   <p className="routine-creator">
                     Created by {routine.creatorName}
                   </p>
+                  {myProfile.username === routine.creatorName && (
+                    <p className="your-routine-message">
+                      This is YOUR Routine!
+                    </p>
+                  )}
                   <p className="routine-goal">Goal: {routine.goal}</p>
                 </div>
                 <div
                   className="try-routine-button"
                   onClick={() => handleRoutineSelect(routine)}
                 >
-                  Try Now!
+                  Try{myProfile.username === routine.creatorName && '/Edit'}{' '}
+                  Now!
                 </div>
               </div>
               {routine.activities.length > 0 && (
