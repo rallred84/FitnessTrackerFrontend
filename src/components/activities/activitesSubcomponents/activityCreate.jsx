@@ -16,6 +16,7 @@ const ActivityCreate = ({ createWindowOpen, token }) => {
 
     if (newActivity.error) {
       setCreateActivityError('That activity already exists');
+      return;
     }
     window.location.reload(false);
   };
