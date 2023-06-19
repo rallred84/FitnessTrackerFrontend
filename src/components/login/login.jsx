@@ -7,12 +7,12 @@ const Login = () => {
   const [registerUsername, setRegisterUsername] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
   const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState('');
-  const [registerFormError, setRegisterFormError] = useState();
+  const [registerFormError, setRegisterFormError] = useState('');
   const { myProfile, setToken } = useOutletContext();
 
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
-  const [loginFormError, setLoginFormError] = useState();
+  const [loginFormError, setLoginFormError] = useState('');
   const navigate = useNavigate();
 
   async function handleRegister(e) {
