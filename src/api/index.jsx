@@ -1,4 +1,4 @@
-const BASE_URL = 'http://fitnesstrac-kr.herokuapp.com/api';
+const BASE_URL = 'https://fitnesstrac-kr.herokuapp.com/api';
 
 // USERS
 //POST/users/register
