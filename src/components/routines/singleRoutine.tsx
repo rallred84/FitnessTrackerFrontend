@@ -5,9 +5,8 @@ import {
   getAllRoutines,
   seeUserPublicRoutines,
   removeActivityFromRoutine,
-  fetchMyProfile,
-} from '../../api';
-import PopUpEdit from '../utils/popUpEdit.jsx';
+} from '../../api/index.tsx';
+import PopUpEdit from '../utils/popUpEdit.tsx';
 
 const SingleRoutine = () => {
   const { routineId } = useParams();
@@ -41,7 +40,7 @@ const SingleRoutine = () => {
     }
   });
 
-  const handleDelete = async (routineActivityId) => {
+  const handleDelete = async (routineActivityId: number) => {
     const removedRoutineActivity = await removeActivityFromRoutine(
       routineActivityId,
       token

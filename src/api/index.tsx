@@ -2,7 +2,7 @@ const BASE_URL = 'https://fitnesstrac-kr.herokuapp.com/api';
 
 // USERS
 //POST/users/register
-export async function registerUser(username, password) {
+export async function registerUser(username: string, password: string) {
   try {
     const response = await fetch(`${BASE_URL}/users/register`, {
       method: 'POST',
@@ -25,7 +25,7 @@ export async function registerUser(username, password) {
 }
 
 //POST/users/login
-export async function loginUser(username, password) {
+export async function loginUser(username: string, password: string) {
   try {
     const response = await fetch(`${BASE_URL}/users/login`, {
       method: 'POST',
@@ -46,7 +46,7 @@ export async function loginUser(username, password) {
 }
 
 //GET/users/me
-export async function fetchMyProfile(token) {
+export async function fetchMyProfile(token: string) {
   try {
     const response = await fetch(`${BASE_URL}/users/me`, {
       headers: {
@@ -65,7 +65,7 @@ export async function fetchMyProfile(token) {
 //GET/users/:username/routines
 //(Gets public routines of any user)
 
-export async function seeUserPublicRoutines(token, usernameOfSearch) {
+export async function seeUserPublicRoutines(token: string, usernameOfSearch: string) {
   try {
     const response = await fetch(
       `${BASE_URL}/users/${usernameOfSearch}/routines`,
@@ -99,7 +99,7 @@ export async function getAllRoutines() {
 //POST/routines
 //creates a new routine
 
-export async function createRoutine(token, name, goal, isPublic) {
+export async function createRoutine(token: string, name: string, goal: string, isPublic: boolean) {
   try {
     const response = await fetch(`${BASE_URL}/routines`, {
       method: 'POST',
@@ -125,10 +125,10 @@ export async function createRoutine(token, name, goal, isPublic) {
 //Attaches a single activity to a routine
 
 export async function addActivityToRoutine(
-  routineId,
-  activityId,
-  count,
-  duration
+  routineId: number,
+  activityId: number,
+  count: number,
+  duration: number
 ) {
   try {
     const response = await fetch(
@@ -156,7 +156,7 @@ export async function addActivityToRoutine(
 //PATCH/routines/:routineId
 //Edit existing routine
 
-export async function editRoutine(token, routineId, editFields) {
+export async function editRoutine(token: string, routineId: number, editFields: any) {
   try {
     const response = await fetch(`${BASE_URL}/routines/${routineId}`, {
       method: 'PATCH',
@@ -177,7 +177,7 @@ export async function editRoutine(token, routineId, editFields) {
 //DELETE/routines/:routineId
 //Permanentyly deletes a routine
 
-export async function deleteRoutine(token, routineId) {
+export async function deleteRoutine(token: string, routineId: number) {
   try {
     const response = await fetch(`${BASE_URL}/routines/${routineId}`, {
       method: 'DELETE',
@@ -210,7 +210,7 @@ export async function getAllActivities() {
 //POST/ACTIVITIES
 //Create a new activity
 
-export async function createActivity(token, name, description) {
+export async function createActivity(token: string, name: string, description: string) {
   try {
     const response = await fetch(`${BASE_URL}/activities`, {
       method: 'POST',
@@ -234,7 +234,7 @@ export async function createActivity(token, name, description) {
 //DELETE /routine_activities/:routineActivityId
 //remove activity from routine
 
-export async function removeActivityFromRoutine(routineActivityId, token) {
+export async function removeActivityFromRoutine(routineActivityId: number, token: string) {
   try {
     const response = await fetch(
       `${BASE_URL}/routine_activities/${routineActivityId}`,
@@ -256,7 +256,7 @@ export async function removeActivityFromRoutine(routineActivityId, token) {
 
 //PATCH /routine_activities/:routineActivityId
 
-export async function editCountAndDuration(token, routineId, editFields) {
+export async function editCountAndDuration(token: string, routineId: number, editFields: any) {
   try {
     const response = await fetch(
       `${BASE_URL}/routine_activities/${routineId}`,
